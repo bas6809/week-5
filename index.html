@@ -16,11 +16,21 @@
       font-family: sans-serif;
       background-color: #ededed;
     }
+
     polaris-chip {
       margin: 16px;
     }
   </style>
   <title>polaris-chip / my-card</title>
+  <style>
+    my-card[fancy] {
+      --my-card-fancy-bg: #FF0000;
+    }
+  </style>
+  <my-card title="Minesotta Wild">
+    <p>A professional hockey team, yet they have terrible colors. I wish I had a <strong>AWESOME</strong> neon yellow /
+      lime jersey like their retro-reverse jerseys</p>
+  </my-card>
 </head>
 
 <body>
@@ -32,7 +42,44 @@
   <polaris-chip title="Grants and donations"></polaris-chip>
 
   <h1>my-card</h1>
-  <my-card></my-card>
+  <my-card 
+    fancy
+    title="Penn State University - Old Main"
+    source="https://www.worldcampus.psu.edu/sites/default/files/2020-04/Old-Main-Spring.jpg">
+    <p>"Pictured above: <strong>The Pennsylvania State University's</strong> Old Main"</p>
+  </my-card>
+
+  <my-card 
+    fancy
+    title="Penn State University"
+    source="https://i0.wp.com/images.onwardstate.com/uploads/2014/02/NittanyLionLogo.jpg?fit=1188%2C753&ssl=1">
+    <p>"Pictured above: <strong>The Pennsylvania State University's</strong> logo"</p>
+  </my-card>
+
+  <my-card 
+    fancy 
+    title="Penn State University's Westgate Building"
+    source="https://ist.psu.edu/sites/default/files/featured/contact.jpg">
+    <p>"The Penn State Westgate Building, originally opened in 2004 as the Information Sciences and Technology Building
+      and later renamed in 2017 to better reflect its role as both a home for the College of Information Sciences and
+      Technology (IST) and a shared space with the Department of Electrical Engineering and Computer Science, is one of
+      the most striking and ambitious architectural landmarks on the University Park campus, designed by Rafael Viñoly
+      Architects in collaboration with Perfido Weiskopf Architects as a massive structure that quite literally bridges
+      Atherton Street, symbolizing connection while also physically linking east and west campus; inspired by Florence’s
+      Ponte Vecchio, the 199,000-square-foot, \$58.8 million complex feels part academic hub, part campus gateway,
+      offering classrooms with advanced telecommunications and multimedia infrastructure, flexible research labs
+      including a state-of-the-art three-dimensional immersive visualization environment, a 155-seat “cybertorium” for
+      lectures and presentations, open study lounges and collaboration spaces, faculty and staff offices, and a newly
+      renovated academic services suite designed to better serve a growing student population, while at the same time
+      creating a distinctive experiential atmosphere through its use of light, glass, and sweeping interior corridors
+      that give students and faculty views of both the surrounding landscape and the city streets below; though
+      initially criticized for its confusing navigation—having more than a dozen entrances and no clear “front door”—the
+      Westgate Building has since been improved with better signage and wayfinding, yet it still retains a kind of
+      maze-like intrigue that reflects both the complexity and interconnectedness of the disciplines it houses, making
+      it not only a center for digital-age education and interdisciplinary research but also a symbol of Penn State’s
+      embrace of innovation, collaboration, and architectural boldness.
+      "</p>
+  </my-card>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
