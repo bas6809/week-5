@@ -3,87 +3,126 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Boilerplate for polaris chip">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <base href="/">
 
   <style>
-    :root,
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
+    :root {
+      --bg-main: #050505;
+      --text-main: #f5f5f5;
+      --accent: #dc2626;
+      --radius-lg: 18px;
+      --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.7);
     }
 
-    polaris-chip {
-      margin: 16px;
+    * {
+      box-sizing: border-box;
     }
-  </style>
-  <title>polaris-chip / my-card</title>
-  <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #111, #050505);
+      color: var(--text-main);
+    }
+
+    body {
+      max-width: 1200px;
+      margin: auto;
+      padding: 32px 24px 64px;
+    }
+
+    h1 {
+      margin: 48px 0 20px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    /* HOVERS */
+    polaris-chip,
+    my-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    polaris-chip:hover,
+    my-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* CARD THEME */
     my-card[fancy] {
-      --my-card-fancy-bg: #FF0000;
+      --my-card-fancy-bg: linear-gradient(145deg, #111, #1a1a1a);
+      --my-card-fancy-text: #ffffff;
+      --my-card-border-radius: var(--radius-lg);
+      --my-card-shadow: var(--shadow-lg);
+    }
+
+    /* FORCE IMAGE FIT */
+    my-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
   </style>
-  <my-card title="Minesotta Wild">
-    <p>A professional hockey team, yet they have terrible colors. I wish I had a <strong>AWESOME</strong> neon yellow /
-      lime jersey like their retro-reverse jerseys</p>
-  </my-card>
+
+  <title>Car Theme Cards</title>
 </head>
 
 <body>
-  <h1>polaris-chip</h1>
-  <!-- this is going to do whatever the tag's defaults are -->
-  <polaris-chip title="News of Record" link="https://psu.edu/"></polaris-chip>
-  <polaris-chip title="Faculty and Staff"></polaris-chip>
-  <polaris-chip title="Sports are the only thing that matter"></polaris-chip>
-  <polaris-chip title="Grants and donations"></polaris-chip>
 
-  <h1>my-card</h1>
-  <my-card 
-    fancy
-    title="Penn State University - Old Main"
-    source="https://www.worldcampus.psu.edu/sites/default/files/2020-04/Old-Main-Spring.jpg">
-    <p>"Pictured above: <strong>The Pennsylvania State University's</strong> Old Main"</p>
-  </my-card>
+  <h1>categories</h1>
+  <div class="chip-row">
+    <polaris-chip title="Supercars"></polaris-chip>
+    <polaris-chip title="Muscle"></polaris-chip>
+    <polaris-chip title="JDM"></polaris-chip>
+    <polaris-chip title="Electric"></polaris-chip>
+  </div>
 
-  <my-card 
-    fancy
-    title="Penn State University"
-    source="https://i0.wp.com/images.onwardstate.com/uploads/2014/02/NittanyLionLogo.jpg?fit=1188%2C753&ssl=1">
-    <p>"Pictured above: <strong>The Pennsylvania State University's</strong> logo"</p>
-  </my-card>
+  <h1>featured cars</h1>
+  <div class="card-grid">
 
-  <my-card 
-    fancy 
-    title="Penn State University's Westgate Building"
-    source="https://ist.psu.edu/sites/default/files/featured/contact.jpg">
-    <p>"The Penn State Westgate Building, originally opened in 2004 as the Information Sciences and Technology Building
-      and later renamed in 2017 to better reflect its role as both a home for the College of Information Sciences and
-      Technology (IST) and a shared space with the Department of Electrical Engineering and Computer Science, is one of
-      the most striking and ambitious architectural landmarks on the University Park campus, designed by Rafael Viñoly
-      Architects in collaboration with Perfido Weiskopf Architects as a massive structure that quite literally bridges
-      Atherton Street, symbolizing connection while also physically linking east and west campus; inspired by Florence’s
-      Ponte Vecchio, the 199,000-square-foot, \$58.8 million complex feels part academic hub, part campus gateway,
-      offering classrooms with advanced telecommunications and multimedia infrastructure, flexible research labs
-      including a state-of-the-art three-dimensional immersive visualization environment, a 155-seat “cybertorium” for
-      lectures and presentations, open study lounges and collaboration spaces, faculty and staff offices, and a newly
-      renovated academic services suite designed to better serve a growing student population, while at the same time
-      creating a distinctive experiential atmosphere through its use of light, glass, and sweeping interior corridors
-      that give students and faculty views of both the surrounding landscape and the city streets below; though
-      initially criticized for its confusing navigation—having more than a dozen entrances and no clear “front door”—the
-      Westgate Building has since been improved with better signage and wayfinding, yet it still retains a kind of
-      maze-like intrigue that reflects both the complexity and interconnectedness of the disciplines it houses, making
-      it not only a center for digital-age education and interdisciplinary research but also a symbol of Penn State’s
-      embrace of innovation, collaboration, and architectural boldness.
-      "</p>
-  </my-card>
+    <my-card fancy title="Lamborghini Aventador">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Aventador._%286675860749%29.jpg"
+        alt="Lamborghini Aventador">
+      <p>V12 supercar with extreme performance and aggressive Italian design.</p>
+    </my-card>
 
-  <!-- this is what is bringing in the definition for this tag -->
+    <my-card fancy title="Dodge Challenger Hellcat">
+      <img
+        src="https://www.exoticmotorsportsok.com/imagetag/2378/3/l/Used-2020-Dodge-Challenger-SRT-Hellcat-1731794964.jpg"
+        alt="Dodge Challenger Hellcat">
+      <p>Supercharged American muscle delivering raw power and torque.</p>
+    </my-card>
+
+    <my-card fancy title="Nissan Skyline GT-R R34">
+      <img
+        src="data:image/jpeg;base64,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"
+        alt="Nissan Skyline GTR R34">
+      <p>Legendary JDM icon with AWD handling and turbocharged performance.</p>
+    </my-card>
+
+  </div>
+
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
 </body>
-
 </html>
